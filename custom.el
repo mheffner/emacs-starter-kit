@@ -1,11 +1,31 @@
+
+;; Load a custom configuration directory
+(setq custom-load-dir (concat dotfiles-dir "custom.d"))
+(add-to-list 'load-path custom-load-dir)
+
+(if (file-exists-p custom-load-dir)
+    (mapc #'load (directory-files custom-load-dir nil ".*el$"))
+  )
+
 (define-key global-map [(f1)] 'delete-other-windows)
 (define-key global-map [(f2)] 'menu-bar-mode)
 (define-key global-map [(f5)] 'buffer-menu)
 
 (define-key global-map [(meta g)] 'goto-line)
 
+(define-key global-map [(meta q)] 'fill-paragraph)
+
+;; Auto newline
+(setq c-auto-newline 1)
+
 ;; Set whitespace column
-(setq whitespace-line-column 80)
+(setq-default whitespace-line-column 80)
+
+;; Require final newline
+(setq-default require-final-newline "ask")
+
+;; Track EOF
+(setq-default track-eol t)
 
 ;; Set level for font decoration
 (setq font-lock-maximum-decoration
@@ -25,3 +45,49 @@
 (add-hook 'c++-mode-hook
           'load-c-settings
           )
+
+;; ws-trim
+(require 'ws-trim)
+
+(add-hook 'c-mode-hook 'turn-on-ws-trim)
+(add-hook 'c++-mode-hook 'turn-on-ws-trim)
+(add-hook 'shell-script-mode 'turn-on-ws-trim)
+
+;;
+;; Python mode
+;;
+(setq py-indent-offset tab-width)
+(setq python-mode-hook
+      '(lambda ()
+         "python mode hook override"
+         (setq tab-width 8)
+         (setq py-indent-offset tab-width)
+         )
+      )
+
+;;
+;; Thrift mode
+;;
+(setq auto-mode-alist (cons '("\\.thrift$" . thrift-mode) auto-mode-alist))
+(autoload 'thift-mode "thrift" "Thrift editing mode." t)
+
+;;
+;; Ruby mode
+;;
+(setq ruby-indent-level tab-width)
+(setq ruby-indent-tabs-mode t)
+
+(defun rails-load-config ()
+  (setq ruby-indent-level 2)
+  (setq ruby-indent-tabs-mode nil))
+
+(autoload 'run-ruby "inf-ruby"
+  "Run an inferior Ruby process")
+(autoload 'inf-ruby-keys "inf-ruby"
+  "Set local key defs for inf-ruby in ruby-mode")
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (inf-ruby-keys)
+	     (if (string-match "/app/" buffer-file-name)
+		 (rails-load-config))
+	     ))
