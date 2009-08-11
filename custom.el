@@ -15,6 +15,8 @@
 
 (define-key global-map [(meta q)] 'fill-paragraph)
 
+(global-set-key "\C-c\C-s" 'magit-status)
+
 ;; Auto newline
 (setq c-auto-newline 1)
 
