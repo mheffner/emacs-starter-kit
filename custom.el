@@ -29,6 +29,9 @@
 ;; Track EOF
 (setq-default track-eol t)
 
+;; scroll bar on right please
+(set-scroll-bar-mode 'right)
+
 ;; Set level for font decoration
 (setq font-lock-maximum-decoration
       '((c-mode . 2) (c++-mode . 2)))
@@ -93,3 +96,10 @@
 	     (if (string-match "/app/" buffer-file-name)
 		 (rails-load-config))
 	     ))
+
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#ece9e9" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 107 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
