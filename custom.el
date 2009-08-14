@@ -16,6 +16,7 @@
 (define-key global-map [(meta q)] 'fill-paragraph)
 
 (global-set-key "\C-c\C-s" 'magit-status)
+(global-set-key (kbd "C-x p") 'find-file-in-project)
 
 ;; Auto newline
 (setq c-auto-newline 1)
