@@ -41,7 +41,7 @@
 (defun load-c-settings ()
   "Load custom C mode settings"
   (c-set-style "bsd")
-  (setq tab-always-indents t)
+  (setq c-tab-always-indent nil)
   (setq indent-tabs-mode t)
   )
 
