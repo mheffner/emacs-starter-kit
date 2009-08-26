@@ -27,6 +27,9 @@
 ;; Track EOF
 (setq-default track-eol t)
 
+;; Kill whole line
+(setq-default kill-whole-line t)
+
 ;; scroll bar on right please
 (set-scroll-bar-mode 'right)
 
@@ -91,7 +94,8 @@
 (add-hook 'ruby-mode-hook
           '(lambda ()
              (inf-ruby-keys)
-	     (if (string-match "/app/" buffer-file-name)
+	     (if (or (string-match "/app/" buffer-file-name)
+		     (string-match "/db/migrate/" buffer-file-name))
 		 (rails-load-config))
 	     ))
 
