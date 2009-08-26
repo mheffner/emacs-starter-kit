@@ -10,9 +10,9 @@
 
 (defface esk-paren-face
    '((((class color) (background dark))
-      (:foreground "grey50"))
+      (:foreground "grey30"))
      (((class color) (background light))
-      (:foreground "grey55")))
+      (:foreground "grey35")))
    "Face used to dim parentheses."
    :group 'starter-kit-faces)
 
