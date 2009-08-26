@@ -15,8 +15,9 @@
 
 (define-key global-map [(meta q)] 'fill-paragraph)
 
-(global-set-key "\C-c\C-s" 'magit-status)
-(global-set-key (kbd "C-x p") 'find-file-in-project)
+(define-key global-map "\C-c\C-s" 'magit-status)
+
+(define-key global-map (kbd "C-x p") 'find-file-in-project)
 
 ;; Set whitespace column
 (setq-default whitespace-line-column 80)
