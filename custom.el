@@ -19,6 +19,9 @@
 
 (define-key global-map (kbd "C-x p") 'find-file-in-project)
 
+(define-key global-map (kbd "<next>") 'forward-page)
+(define-key global-map (kbd "<prior>") 'backward-page)
+
 ;; Set whitespace column
 (setq-default whitespace-line-column 80)
 
