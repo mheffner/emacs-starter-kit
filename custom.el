@@ -41,6 +41,12 @@
 (setq font-lock-maximum-decoration
       '((c-mode . 2) (c++-mode . 2)))
 
+;; Set cursor style dynamically
+(require 'cursor-chg)
+(toggle-cursor-type-when-idle 1) ; change cursor when idle
+; Turn on change for overwrite, read-only, and input mode
+(change-cursor-mode 1)
+
 ;; Mode hook to set indent-tab-mode
 (defun load-c-settings ()
   "Load custom C mode settings"
