@@ -47,6 +47,9 @@
 ; Turn on change for overwrite, read-only, and input mode
 (change-cursor-mode 1)
 
+;; xcscope
+(require 'xcscope)
+
 ;; My C-style
 (defconst my-c-style
   '((c-tab-always-indent . nil)
