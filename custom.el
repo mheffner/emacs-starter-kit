@@ -109,6 +109,7 @@
              (inf-ruby-keys)
 	     (if (or (string-match "/app/" buffer-file-name)
 		     (string-match "/db/migrate/" buffer-file-name)
+		     (string-match "/spec/" buffer-file-name)
                      (string-match "/config/*environment*" buffer-file-name))
 		 (rails-load-config))
 	     ))
