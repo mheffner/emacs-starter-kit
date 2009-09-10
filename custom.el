@@ -47,14 +47,23 @@
 ; Turn on change for overwrite, read-only, and input mode
 (change-cursor-mode 1)
 
+;; xcscope
+(require 'xcscope)
+
+;; My C-style
+(defconst my-c-style
+  '((c-tab-always-indent . nil)
+    (c-basic-offset . 8)
+    (c-offsets-alist . ((arglist-cont . *)
+                        (arglist-cont-nonempty . *)))))
+
+(c-add-style "mybsd" my-c-style)
+
 ;; Mode hook to set indent-tab-mode
 (defun load-c-settings ()
   "Load custom C mode settings"
-  (c-set-style "bsd")
-  (setq c-tab-always-indent nil)
+  (c-set-style "mybsd")
   (setq indent-tabs-mode t)
-  (setq c-offsets-alist (quote ((arglist-cont . *)
-                                (arglist-cont-nonempty . *))))
   (message "Loaded custom C settings")
   )
 
