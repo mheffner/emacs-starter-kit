@@ -102,8 +102,8 @@
 ;;
 ;; Ruby mode
 ;;
-(setq ruby-indent-level tab-width)
-(setq ruby-indent-tabs-mode t)
+;; (setq ruby-indent-level tab-width)
+;; (setq ruby-indent-tabs-mode t)
 
 (defun rails-load-config ()
   (setq ruby-indent-level 2)
