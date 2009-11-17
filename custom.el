@@ -105,6 +105,9 @@
 ;; (setq ruby-indent-level tab-width)
 ;; (setq ruby-indent-tabs-mode t)
 
+;; Fixes exception first time ruby file is opened
+(require 'tramp-cmds)
+
 (defun rails-load-config ()
   (setq ruby-indent-level 2)
   (setq ruby-indent-tabs-mode nil))
