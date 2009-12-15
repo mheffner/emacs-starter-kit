@@ -15,7 +15,8 @@
 
 (define-key global-map [(meta q)] 'fill-paragraph)
 
-(define-key global-map "\C-c\C-s" 'magit-status)
+(define-key global-map (kbd "C-x j") 'join-line)
+(define-key global-map (kbd "C-x m") 'magit-status)
 
 (define-key global-map (kbd "C-x p") 'find-file-in-project)
 
