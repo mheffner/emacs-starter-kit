@@ -100,6 +100,12 @@
 (setq auto-mode-alist (cons '("\\.thrift$" . thrift-mode) auto-mode-alist))
 (autoload 'thift-mode "thrift" "Thrift editing mode." t)
 
+;; HAML mode
+(require 'haml-mode)
+
+;; SASS mode
+(require 'sass-mode)
+
 ;;
 ;; Ruby mode
 ;;
