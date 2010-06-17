@@ -65,6 +65,7 @@
   "Load custom C mode settings"
   (c-set-style "mybsd")
   (setq indent-tabs-mode t)
+  (setq column-number-mode t)
   (message "Loaded custom C settings")
   )
 
