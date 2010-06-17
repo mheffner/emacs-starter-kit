@@ -75,6 +75,18 @@
           'load-c-settings
           )
 
+;; Jave style
+(defun load-java-settings()
+  "Load custom java mode settings"
+  (c-set-style "mybsd")
+  (setq indent-tabs-mode t)
+  (message "Loaded custom Java settings")
+  )
+
+(add-hook 'java-mode-hook
+          'load-java-settings
+          )
+
 ;; ws-trim
 (require 'ws-trim)
 
