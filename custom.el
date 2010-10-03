@@ -98,6 +98,19 @@
 (add-hook 'ruby-mode-hook 'turn-on-ws-trim)
 
 ;;
+;; whitespace (display)
+;;
+(require 'whitespace)
+;;(autoload 'whitespace-mode "whitespace" "Toggle whitespace visualization." t)
+
+;; Show trailing whitespace
+(setq-default show-trailing-whitespace t)
+
+;;(setq whitespace-style
+;;      '(trailing lines-tail indentation space-after-tab
+;;                 space-before-tab))
+
+;;
 ;; Shell Script settings
 ;;
 
