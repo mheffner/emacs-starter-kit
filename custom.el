@@ -88,6 +88,14 @@
           'load-java-settings
           )
 
+;; paredit mode is annoying as hell, disable in JS
+(remove-hook 'espresso-mode-hook 'esk-paredit-nonlisp)
+
+;; also disable in all lisp modes
+(dolist (x '(scheme emacs-lisp lisp clojure))
+  (remove-hook
+   (intern (concat (symbol-name x) "-mode-hook")) 'turn-on-paredit))
+
 ;; ws-trim
 (require 'ws-trim)
 
