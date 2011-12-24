@@ -185,11 +185,10 @@ prefer for `sh-mode'.  It is automatically added to
 ;;
 ;; Python mode
 ;;
-(setq py-indent-offset tab-width)
 (setq python-mode-hook
       '(lambda ()
          "python mode hook override"
-         (setq tab-width 8)
+         (setq tab-width 4)
          (setq py-indent-offset tab-width)
          )
       )
