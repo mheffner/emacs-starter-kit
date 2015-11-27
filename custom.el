@@ -110,6 +110,19 @@
 ;; paredit mode is annoying as hell, disable in JS
 (remove-hook 'espresso-mode-hook 'esk-paredit-nonlisp)
 
+;; The default JS mode settings are pretty annoying, fix here.
+;;
+
+(add-hook 'javascript-mode-hook
+          '(lambda ()
+             "js mode hook override"
+             (setq js-indent-level 2)
+             )
+          )
+
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+
 ;; also disable in all lisp modes
 (dolist (x '(scheme emacs-lisp lisp clojure))
   (remove-hook
@@ -137,6 +150,27 @@
 
 (add-hook 'coffee-mode-hook
   '(lambda() (coffee-custom)))
+
+;;
+;; Groovy
+;;
+
+;;; use groovy-mode when file ends in .groovy or has #!/bin/groovy at start
+(autoload 'groovy-mode "groovy-mode" "Major mode for editing Groovy code." t)
+(add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
+(add-to-list 'auto-mode-alist '("\.gradle$" . groovy-mode))
+(add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
+
+;;; make Groovy mode electric by default.
+(add-hook 'groovy-mode-hook
+          '(lambda ()
+             (require 'groovy-electric)
+             (groovy-electric-mode)))
+
+;;
+;; Google Go
+;;
+(require 'go-mode-load)
 
 ;;
 ;; whitespace (display)
@@ -206,6 +240,12 @@ prefer for `sh-mode'.  It is automatically added to
 (require 'sass-mode)
 
 ;;
+;; disable annoying feature of IDO
+;;
+
+(setq ido-use-filename-at-point nil)
+
+;;
 ;; Ruby mode
 ;;
 ;; (setq ruby-indent-level tab-width)
@@ -231,6 +271,13 @@ prefer for `sh-mode'.  It is automatically added to
                      (string-match "/config/*environment*" buffer-file-name))
 		 (rails-load-config))
 	     ))
+
+;;
+;; use re-builder regex in query-replace
+;;
+;; From: http://emacs-journey.blogspot.com/2012/06/re-builder-query-replace-this.html
+;;
+
 
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
